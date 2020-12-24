@@ -85,7 +85,6 @@ class EthereumServiceProviderConnector(ServiceProviderConnector):
         logging.error(last_exception, exc_info=True)
         raise BroadcastError(last_exception)
 
-'''
 class EtherscanBroadcaster(object):
     def __init__(self, base_url):
         self.base_url = base_url
@@ -148,9 +147,7 @@ class EtherscanBroadcaster(object):
         else:
             logging.info('response error checking nonce')
         raise BroadcastError('Error checking the nonce through the Etherscan API. Error msg: %s', response.text)
-'''
 
-'''
 
 class MyEtherWalletBroadcaster(object):
     def __init__(self, base_url):
@@ -216,7 +213,6 @@ class MyEtherWalletBroadcaster(object):
             logging.info('response error checking nonce')
         raise BroadcastError('Error checking the nonce through the MyEtherWallet API. Error msg: %s', response.text)
 
-'''
 
 class InfuraBroadcaster(object):
     def __init__(self, base_url):
@@ -288,16 +284,16 @@ connectors = {}
 
 # Configure Ethereum mainnet connectors
 eth_provider_list = []
-# eth_provider_list.append(EtherscanBroadcaster('https://api.etherscan.io/api'))
-# eth_provider_list.append(MyEtherWalletBroadcaster('https://api.myetherwallet.com/eth'))
 eth_provider_list.append(InfuraBroadcaster('https://mainnet.infura.io/v3/123a511f09564b2a890fef4028264f1b'))
+eth_provider_list.append(EtherscanBroadcaster('https://api.etherscan.io/api'))
+eth_provider_list.append(MyEtherWalletBroadcaster('https://api.myetherwallet.com/eth'))
 connectors[Chain.ethereum_mainnet] = eth_provider_list
 
 # Configure Ethereum Ropsten testnet connectors
 rop_provider_list = []
-# rop_provider_list.append(EtherscanBroadcaster('https://ropsten.etherscan.io/api'))
-# rop_provider_list.append(MyEtherWalletBroadcaster('https://api.myetherwallet.com/rop'))
 rop_provider_list.append(InfuraBroadcaster('https://ropsten.infura.io/v3/123a511f09564b2a890fef4028264f1b'))
+rop_provider_list.append(EtherscanBroadcaster('https://ropsten.etherscan.io/api'))
+rop_provider_list.append(MyEtherWalletBroadcaster('https://api.myetherwallet.com/rop'))
 connectors[Chain.ethereum_ropsten] = rop_provider_list
 
 
