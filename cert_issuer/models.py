@@ -5,7 +5,7 @@ from abc import abstractmethod
 from cert_issuer.config import ESTIMATE_NUM_INPUTS
 
 def validate_RFC3339_date (date):
-    return re.match('^[1-9]\d{3}-\d{2}-\d{2}[Tt]\d{2}:\d{2}:\d{2}[Zz]$', date)
+    return re.match('^[1-9]\d{3}-\d{2}-\d{2}[Tt]\d{2}:\d{2}:\d{2}.\d{6}[+-]\d{2}:\d{2}$', date)
 
 def validate_url (url):
     parsed_url = urlparse(url)
@@ -53,7 +53,6 @@ def validate_date_RFC3339_string_format (date, property_name):
     error_message = '{} property must be a valid RFC3339 string'.format(property_name)
     if not isinstance(date, str):
         raise ValueError(error_message)
-
     if not validate_RFC3339_date(date):
         raise ValueError(error_message)
     pass
