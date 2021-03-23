@@ -192,13 +192,13 @@ Decide which chain (Bitcoin or Ethereum) to issue to and follow the steps. The b
 
 By default, cert-issuer issues to the Bitcoin blockchain. Run the default setup script if this is the mode you want:
 ```
-python3 setup.py install
+python setup.py install
 
 ```
 
 To issue to the ethereum blockchain, run the following:
 ```
-python3 setup.py experimental --blockchain=ethereum
+python setup.py experimental --blockchain=ethereum
 
 ```
 
@@ -243,12 +243,8 @@ Notes:
 2. If you've installed the package you can issue certificates by running:
 
 ```
-python３ cert-issuer -c conf.ini
+python cert-issuer -c conf.ini
 ```
-
-Notes:
-  - If you run the V3 certification on the ropsten network as test, change the command as `conf_ethtest.ini`.
-  - You can put your pubkey in the value of `verification_method` to show how to verify so far. [Here](https://github.com/lastrust/cert-issuer/tree/b25bc5334ec4a246543f44c40f7305ecd827574c/examples/lastrust_VCs) is the example.However, this method may change after adjusting DID method.
 
 3. Output
   - The Blockchain Certificates will be located in data/blockchain_certificates.
