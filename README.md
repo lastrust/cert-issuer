@@ -216,6 +216,9 @@ Edit your conf.ini file (the config file for this application).
 ```
 issuing_address = <issuing-address>
 
+# issuer URL / DID
+verification_method = <verification-method>
+
 chain=<bitcoin_regtest|bitcoin_testnet|bitcoin_mainnet|ethereum_ropsten|ethereum_mainnet|mockchain>
 
 usb_name = </Volumes/path-to-usb/>
@@ -243,7 +246,12 @@ Notes:
 
 ```
 python3 cert-issuer -c conf.ini
+
 ```
+
+Notes:
+  - If you run the V3 certification on the ropsten network as test, change the command as `conf_ethtest.ini`.
+  - You can put your pubkey in the value of `verification_method` to show how to verify so far. However, this method may change after adjusting DID method.
 
 3. Output
   - The Blockchain Certificates will be located in data/blockchain_certificates.

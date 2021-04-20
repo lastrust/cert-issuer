@@ -36,4 +36,3 @@ RUN apk add --update \
 
 
 ENTRYPOINT bitcoind -daemon && bash
-
